@@ -266,8 +266,9 @@ p {
    margin: 0px;
 }
 
-b {
+em {
   font-family: 'hk_groteskbold';
+  font-style: unset;
 }
 
 .remark-slide {
