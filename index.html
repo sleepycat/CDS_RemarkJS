@@ -16,31 +16,62 @@ class: middle, title-slide
 ---
 class:left, middle
 
-# Level 1
+# The basics: functions
 
 ---
+
+class:left, middle
+![functions](images/functions.png)
+
+---
+class: left, code
+
+```javascript
+// Creating a function:
+function() { ...do some work... }
+// "Fat Arrow" function shorthand:
+() => { ...do some work... }
+
+// Kahn's example
+function f(x) {
+  if(x % 2) {
+      return x + 5
+    } else { 
+      return Math.pow(x, 2)
+  }
+}
+
+```
+
+---
+class: left, code
+
+```javascript
+> function f(x) {
+...   if(x % 2) {
+.....       return x + 5
+.....     } else { 
+.....       return Math.pow(x, 2)
+.....     }
+... }
+undefined
+> f(4)
+16
+```
+
+---
+
 class:left, middle
 
-# The basics: HTTP
-
+# The basics: The World Wide Web
+* HTML
+* HTTP
+* Web browser
 ---
 class: center, middle
 
 .sixty[![TBL](images/berners-lee.jpg)]
 
----
-class: left, code
-
-```sh
-# asking for a document
-curl localhost:5000/example.html
-
-# the request
-GET /example.html HTTP/1.1
-Host: localhost:5000
-User-Agent: curl/7.57.0
-Accept: */*
-```
 ---
 class: left, code
 
@@ -60,6 +91,19 @@ class: left, code
 &lt;/html&gt;
 ```
 ---
+class: left, code
+
+```sh
+# asking for a document
+curl localhost:5000/example.html
+
+# the request
+GET /example.html HTTP/1.1
+Host: localhost:5000
+User-Agent: curl/7.57.0
+Accept: */*
+```
+---
 
 class:left, middle
 
@@ -68,12 +112,15 @@ class:left, middle
 ---
 
 class: left, code
-# Servers: mapping code to URLs
+# Servers: connecting functions to URLs
 
 ```javascript
 const express = require('express')
 
 let server = express()
+
+// Assuming a request like this:
+// GET /somepath HTTP/1.1
 
 server.get('/somepath', (request, response) => {
   // do useful work
@@ -82,11 +129,6 @@ server.get('/somepath', (request, response) => {
   response.send('waaaassup!')
 })
 ```
----
-class:left, middle
-
-# Level 2
-
 ---
 
 class:left, middle
